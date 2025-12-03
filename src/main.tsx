@@ -6,7 +6,7 @@ import AppTheme from "./layout/AppTheme";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <AppTheme>
-      <main className="dark:bg-gray-800 dark:text-white h-screen">
+      <main className="dark:bg-gray-800 dark:text-white overflow-hidden h-screen">
         <App />
       </main>
     </AppTheme>

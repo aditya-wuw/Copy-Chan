@@ -1,28 +1,65 @@
 // import { invoke } from "@tauri-apps/api/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { history } from "../../types/app.types";
+// import { readText } from "@tauri-apps/plugin-clipboard-manager";
+import { invoke } from "@tauri-apps/api/core";
+import { listen } from "@tauri-apps/api/event";
 
 const Copy = () => {
   const [History, setHistory] = useState<history[]>([]);
+
   // frontend
-  function removeHistory(id: string) {
-    //logic for removing
-    setHistory(History.filter((prev=>prev.id!=id)));
-    // call the rust backend to clear the histroy
-    //rust api calls ==> await invoke("DeleteData", { id });
-    alert(`${id} deleted`);
+  // async function ReadCopy() {
+  //   const Copy = await readText();
+  //   await invoke("copy_history_add", {
+  //     content: Copy,
+  //   });
+  // }
+  async function HandleClipbord(item: string) {
+    await navigator.clipboard.writeText(item);
   }
 
+  async function fetchHistory() {
+    //fetches all the text from the text
+    let history: history[] = await invoke("get_history");
+    setHistory(history.reverse());
+  }
+
+  async function removeHistory(id: string) {
+    //logic for removing
+    setHistory(History.filter((prev) => prev.id != id));
+    // call the rust backend to clear the histroy
+    //rust api calls ==> await invoke("DeleteData", { id });
+    await invoke("del_entry", { id: id });
+  }
+
+  listen("clipboard-changed", async () => {
+    fetchHistory();
+  });
+
+  useEffect(() => {
+    fetchHistory();
+  }, []);
+
   return (
-    <main>
-      {History.length === 0 ? <span className="flex justify-center">no history</span>:History.map((i) => (
-        <div key={i.id} className="flex justify-between m-2">
-          <div className="p-3 hover:">{i.item}</div>
-          <button className="bg-red-500 p-2" onClick={() => removeHistory(i.id)}>
-            delete
-          </button>
-        </div>
-      ))}
+    <main className="mb-10">
+      {History.length === 0 ? (
+        <span className="flex justify-center">no history</span>
+      ) : (
+        History.map((i) => (
+          <div key={i.id} className="flex justify-between m-2 items-start">
+            <button
+              className="p-3 hover:bg-blue-500 w-80 wrap-break-word"
+              onClick={() => HandleClipbord(i.item)}
+            >
+              {i.item}
+            </button>
+            <button className="bg-red-500 p-2 h-fit" onClick={() => removeHistory(i.id)}>
+              delete
+            </button>
+          </div>
+        ))
+      )}
     </main>
   );
 };

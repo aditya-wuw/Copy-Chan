@@ -7,7 +7,7 @@ type NavProps = {
 const Nav = ({ ActiveTab, SetActiveTab }: NavProps) => {
   const items: Tab[] = ["copy", "emoji", "symbols"];
   return (
-    <nav className="grid grid-cols-3 place-items-center group">
+    <nav className="sticky grid grid-cols-3 place-items-center group">
       {items.map((i, index) => (
         <button
           key={index}

@@ -11,7 +11,7 @@ function App() {
   return (
     <main className="container">
       <Nav ActiveTab={ActiveTab} SetActiveTab={SetActiveTab} />
-      <div className="content">
+      <div className="content overflow-y-scroll h-screen scroll-smooth">
         {ActiveTab === "copy" && <Copy />}
         {ActiveTab === "emoji" && <Emoji />}
         {ActiveTab === "symbols" && <Symbol />}
