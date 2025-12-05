@@ -1,20 +1,10 @@
-// import { invoke } from "@tauri-apps/api/core";
 import { useEffect, useState } from "react";
 import { history } from "../../types/app.types";
-// import { readText } from "@tauri-apps/plugin-clipboard-manager";
 import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 
 const Copy = () => {
   const [History, setHistory] = useState<history[]>([]);
-
-  // frontend
-  // async function ReadCopy() {
-  //   const Copy = await readText();
-  //   await invoke("copy_history_add", {
-  //     content: Copy,
-  //   });
-  // }
   async function HandleClipbord(item: string) {
     await navigator.clipboard.writeText(item);
   }
@@ -28,8 +18,6 @@ const Copy = () => {
   async function removeHistory(id: string) {
     //logic for removing
     setHistory(History.filter((prev) => prev.id != id));
-    // call the rust backend to clear the histroy
-    //rust api calls ==> await invoke("DeleteData", { id });
     await invoke("del_entry", { id: id });
   }
 
