@@ -4,13 +4,11 @@ use tauri::Emitter;
 use tauri_plugin_clipboard_manager::ClipboardExt;
 
 use crate::copy_logic::copy::copy_history_add;
-
 pub fn cblisten(app_handle: tauri::AppHandle) {
     let ah = app_handle.clone();
 
     let callback = move || {
         let ah_inner = ah.clone();
-        // We can keep async task (non-blocking)
         async_runtime::spawn(async move {
             match ah_inner.clipboard().read_text() {
                 Ok(text) => {

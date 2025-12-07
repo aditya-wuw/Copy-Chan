@@ -6,10 +6,13 @@
   "permissions": [
     "core:default",
     "opener:default",
+    "global-shortcut:default",
+    "global-shortcut:allow-register",
+    "global-shortcut:allow-unregister",
     "clipboard-manager:allow-read-text",
     "clipboard-manager:allow-write-text",
     "clipboard-manager:allow-read-image",
     "clipboard-manager:allow-write-image",
-    "global-shortcut:allow-register"
+    "core:app:allow-default-window-icon"
   ]
 }
