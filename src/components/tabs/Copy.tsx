@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import { history } from "../../types/app.types";
 import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { getCurrentWindow } from "@tauri-apps/api/window";
+const appWindow = getCurrentWindow();
 
 const Copy = () => {
   const [History, setHistory] = useState<history[]>([]);
   async function HandleClipbord(item: string) {
     await navigator.clipboard.writeText(item);
+    await appWindow.hide();
   }
 
   async function fetchHistory() {
@@ -30,20 +34,20 @@ const Copy = () => {
   }, []);
 
   return (
-    <main className="mb-20 mr-2">
+    <main className="mr-1">
       {History.length === 0 ? (
         <span className="flex justify-center">no history</span>
       ) : (
         History.map((i) => (
-          <div key={i.id} className="flex justify-between m-2 items-start gap-2">
-            <button
-              className="p-3 hover:bg-blue-500 w-80 wrap-break-word rounded-md mb-2"
+          <div key={i.id} className="flex justify-between m-2 items-start">
+            <div
+              className="p-3 mt-2 bg-blue-500/20  hover:bg-blue-500 hover:text-white w-75 max-h-27 line-clamp-4 overflow-hidden rounded-md cursor-pointer"
               onClick={() => HandleClipbord(i.item)}
             >
               {i.item}
-            </button>
-            <button className="bg-red-500 p-2 h-fit rounded-md" onClick={() => removeHistory(i.id)}>
-              delete
+            </div>
+            <button className="p-2 h-fit rounded-md" onClick={() => removeHistory(i.id)}>
+              <RiDeleteBin6Fill size={17} className="hover:text-red-500 hover:scale-130" />
             </button>
           </div>
         ))

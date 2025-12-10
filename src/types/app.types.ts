@@ -1,4 +1,8 @@
-export type Tab = "copy" | "emoji" | "symbols";
+
+export type TabItem = {
+  label: string;      
+  icon?: React.ReactNode; 
+};
 
 export interface history {
     "id":string,
@@ -8,4 +12,10 @@ export interface history {
 export interface shortcuts { 
     shortcut : string,
     action : () => void | Promise<void>;
+}
+
+export interface Emojies{
+    label : string,
+    type: string
+    emoji : string
 }
