@@ -1,6 +1,5 @@
 use mouse_position::mouse_position::Mouse;
-use tauri::{AppHandle, Manager, WindowEvent};
-
+use tauri::{AppHandle, Manager};
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 use crate::copy_logic::{
     cblisten::cblisten, copy::copy_history_add, copy::del_entry, copy::get_history,
@@ -16,6 +15,7 @@ fn listen_to_clipbord(app: &mut tauri::App) {
         cblisten(handle);
     });
 }
+
 #[tauri::command]
 fn hide_window(app: AppHandle) {
     println!("hiding the window");
@@ -49,17 +49,24 @@ fn window_pos(app: tauri::AppHandle, is_shortcut: bool) {
     if let Some(main_window) = app.get_webview_window("main") {
         if is_shortcut {
             let pos = Mouse::get_mouse_position();
+            let offset = 30;
             match pos {
                 Mouse::Position { x, y } => main_window
-                    .set_position(tauri::PhysicalPosition::new(x, y))
+                    .set_position(tauri::PhysicalPosition::new(x + offset, y + offset))
                     .expect("Failed to set window position"),
                 _ => println!("Mouse returned something else"),
             }
-        } else {
+        } else if let Ok(Some(monitor)) = main_window.current_monitor() {
+            let size = monitor.size();
+            let screen_width = size.width;
             main_window
-                .set_position(tauri::PhysicalPosition::new(1500, 10))
+                .set_position(tauri::PhysicalPosition::new(
+                    screen_width as f64 * 0.72,
+                    10.0,
+                ))
                 .expect("Failed to set window position");
         }
+
         main_window.show().unwrap();
         main_window.set_focus().unwrap();
     } else {
@@ -67,28 +74,12 @@ fn window_pos(app: tauri::AppHandle, is_shortcut: bool) {
     }
 }
 
-//close on focus loss
-// fn close_window_on_focus_loss(app: &mut tauri::App) {
-
-// }
-
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_clipboard_manager::init())
         .plugin(tauri_plugin_global_shortcut::Builder::default().build())
-        .on_window_event(|app_handle, event| match event {
-            WindowEvent::Focused(focused) => {
-                if !focused {
-                    println!("window lost focus..");
-                    if let Some(window) = app_handle.get_webview_window("main") {
-                        window.hide().unwrap();
-                    }
-                }
-            }
-            _ => {}
-        })
         .setup(|app| {
             listen_to_clipbord(app);
             Ok(())
