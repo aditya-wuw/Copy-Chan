@@ -9,10 +9,10 @@ export interface history {
     "item":string
 }
 
-export interface shortcuts { 
-    shortcut : string,
-    action : () => void | Promise<void>;
-}
+// export interface shortcuts { 
+//     shortcut : string,
+//     action : () => void | Promise<void>;
+// }
 
 export interface Emojies{
     label : string,
@@ -20,3 +20,5 @@ export interface Emojies{
     emoji : string,
     keywords : string[]
 }
+
+export type GroupedEmojies = Record<string, Emojies[]>;
