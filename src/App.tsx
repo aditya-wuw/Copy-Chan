@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Copy from "./components/tabs/Copy";
-import Emoji from "./components/tabs/Emoji";
-import Symbol from "./components/tabs/Symbol";
 import { TabItem } from "./types/app.types";
 import Nav from "./components/nav/Nav";
 import { setupTray } from "./utils/systemtray";
 import { register_shortcuts } from "./utils/globalshortcuts";
+import Emoji from "./components/tabs/Emoji";
+import { graphicEmojiArray, symbolEmoticonArray } from "./utils/emojidata";
 
 function App() {
   const [ActiveTab, SetActiveTab] = useState<TabItem>({label:"copy"});
@@ -21,8 +21,8 @@ function App() {
       <strong className="flex justify-center">{ActiveTab.label}</strong>
       <div className="content overflow-y-scroll h-100 scroll-smooth mx-1">
         {ActiveTab.label === "copy" && <Copy />}
-        {ActiveTab.label === "emoji" && <Emoji />}
-        {ActiveTab.label === "symbols" && <Symbol />}
+        {ActiveTab.label === "emoji" && <Emoji emotes={graphicEmojiArray}/>}
+        {ActiveTab.label === "symbols" && <Emoji emotes={symbolEmoticonArray}/>}
       </div>
     </main>
   );
