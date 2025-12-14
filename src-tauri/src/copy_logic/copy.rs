@@ -8,9 +8,10 @@ pub struct CopyBord {
     id: Uuid,
     item: String,
 }
-const FILE_PATH: &str = "../data/copy_data.json";
-const MAX_ENTRIES: usize = 5;
-// pub type CopyHistory = Vec<CopyBord>;
+
+//update it it should return a valid user config path
+const FILE_PATH: &str = "/home/adi/.config/copyhistory/data/copy_data.json";
+const MAX_ENTRIES: usize = 10;
 
 #[tauri::command]
 pub fn copy_history_add(content: String) -> Result<(), String> {
