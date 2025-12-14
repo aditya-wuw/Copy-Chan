@@ -17,10 +17,9 @@ const SearchBox = ({ Searchdata, SetFiltered }: props) => {
       const KeywordsMatch = i.keywords.some((k) => k.trim().includes(terms));
       return EmojiMatch || LabelMatch || KeywordsMatch;
     });
-
     SetFiltered(f);
   }
-
+  
   return (
     <div>
       <div className="flex justify-between gap-3">

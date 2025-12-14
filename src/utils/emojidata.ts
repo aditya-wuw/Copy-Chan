@@ -1,573 +1,1744 @@
-import { Emojies } from "../types/app.types"
+import { Emojies } from "../types/app.types";
 
 export const symbolEmoticonArray: Emojies[] = [
-        //    currency
-    {
-        label: "USD",
-        type: "Currency",
-        emoji: "$", 
-        keywords: ["dollar", "usd", "money", "cash", "finance"]
-    },
-    {
-        label: "Euro",
-        type: "Currency",
-        emoji: "€",
-        keywords: ["euro", "eur", "europe", "money", "cash"]
-    },
-    {
-        label: "British Pound",
-        type: "Currency",
-        emoji: "£",
-        keywords: ["pound", "gbp", "sterling", "money", "uk"]
-    },
-    {
-        label: "Yen / Yuan",
-        type: "Currency",
-        emoji: "¥",
-        keywords: ["yen", "yuan", "jpy", "cny", "japan", "china"]
-    },
-    {
-        label: "INR",
-        type: "Currency",
-        emoji: "₹",
-        keywords: ["rupee", "inr", "india", "money"]
-    },
-    {
-        label: "Russian Ruble",
-        type: "Currency",
-        emoji: "₽",
-        keywords: ["ruble", "rub", "russia", "money"]
-    },
-    {
-        label: "South Korean Won",
-        type: "Currency",
-        emoji: "₩",
-        keywords: ["won", "krw", "korea", "money"]
-    },
-    {
-        label: "Thai Baht",
-        type: "Currency",
-        emoji: "฿",
-        keywords: ["baht", "thb", "thailand", "money"]
-    },
-    {
-        label: "Turkish Lira",
-        type: "Currency",
-        emoji: "₺",
-        keywords: ["lira", "try", "turkey", "money"]
-    },{
-        label: "Swiss Franc",
-        type: "Currency",
-        emoji: "₣", 
-        keywords: ["franc", "chf", "switzerland", "money", "cash"]
-    },
-    {
-        label: "Israeli Shekel",
-        type: "Currency",
-        emoji: "₪",
-        keywords: ["shekel", "ils", "israel", "money"]
-    },
-    {
-        label: "VN Dong",
-        type: "Currency",
-        emoji: "₫",
-        keywords: ["dong", "vnd", "vietnam", "money"]
-    },
-    {
-        label: "Hryvnia",
-        type: "Currency",
-        emoji: "₴",
-        keywords: ["hryvnia", "uah", "ukraine", "money"]
-    },
-    {
-        label: "Peso",
-        type: "Currency",
-        emoji: "₱",
-        keywords: ["peso", "php", "philippines", "money"]
-    },
-    {
-        label: "Cedi",
-        type: "Currency",
-        emoji: "₵",
-        keywords: ["cedi", "ghs", "ghana", "money"]
-    },
-    {
-        label: "Tugrik",
-        type: "Currency",
-        emoji: "₮",
-        keywords: ["tugrik", "mnt", "mongolia", "money"]
-    },
-    {
-        label: "Lao Kip",
-        type: "Currency",
-        emoji: "₭",
-        keywords: ["kip", "lak", "laos", "money"]
-    },
-    {
-        label: "Sucre",
-        type: "Currency",
-        emoji: "₳",
-        keywords: ["sucre", "ecuador", "historic", "money"]
-    },
-    {
-        label: "cash",
-        type: "Currency",
-        emoji: "¤",
-        keywords: ["generic", "currency", "cash", "money"]
-    },
-    // --- Arithmetic / Math ---
-    {
-        label: "Plus",
-        type: "Arithmetic",
-        emoji: "+",
-        keywords: ["add", "plus", "sum", "increase", "positive"]
-    },
-    {
-        label: "Minus",
-        type: "Arithmetic",
-        emoji: "-",
-        keywords: ["subtract", "minus", "difference", "decrease", "negative"]
-    },
-    {
-        label: "Times",
-        type: "Arithmetic",
-        emoji: "×", // Unicode 'Multiplication Sign'
-        keywords: ["multiply", "times", "product", "cross"]
-    },
-    {
-        label: "Divide",
-        type: "Arithmetic",
-        emoji: "÷", // Unicode 'Division Sign'
-        keywords: ["divide", "quotient", "ratio"]
-    },
-    {
-        label: "Equals",
-        type: "Arithmetic",
-        emoji: "=",
-        keywords: ["equal", "result", "is", "equality"]
-    },
-    {
-        label: "Not Equal",
-        type: "Arithmetic",
-        emoji: "≠",
-        keywords: ["not equal", "unequal", "difference"]
-    },
-    {
-        label: "Approx",
-        type: "Arithmetic",
-        emoji: "≈",
-        keywords: ["approximate", "almost equal", "estimate"]
-    },
-    {
-        label: "Less Than",
-        type: "Arithmetic",
-        emoji: "<",
-        keywords: ["smaller", "less", "lower"]
-    },
-    {
-        label: "Greater Than",
-        type: "Arithmetic",
-        emoji: ">",
-        keywords: ["bigger", "greater", "higher"]
-    },
-    {
-        label: "Equal To",
-        type: "Arithmetic",
-        emoji: "≤",
-        keywords: ["less equal", "at most"]
-    },
-    {
-        label: "Greater Equal",
-        type: "Arithmetic",
-        emoji: "≥",
-        keywords: ["greater equal", "at least"]
-    },
-    {
-        label: "Percent",
-        type: "Arithmetic",
-        emoji: "%",
-        keywords: ["percentage", "rate", "ratio", "out of 100"]
-    },
-    {
-        label: "Permille",
-        type: "Arithmetic",
-        emoji: "‰",
-        keywords: ["per thousand", "basis points", "rate"]
-    },
-    {
-        label: "Infinity",
-        type: "Arithmetic",
-        emoji: "∞",
-        keywords: ["endless", "limitless", "math", "forever"]
-    },
-    {
-        label: "Square Root",
-        type: "Arithmetic",
-        emoji: "√",
-        keywords: ["root", "radical", "math"]
-    },{
-        label: "Power",
-        type: "Arithmetic",
-        emoji: "^", 
-        keywords: ["caret", "power", "exponent", "to the power of"]
-    },
-    {
-        label: "Pi",
-        type: "Arithmetic",
-        emoji: "π",
-        keywords: ["pi", "constant", "geometry", "circle", "3.14"]
-    },
-    {
-        label: "Sigma",
-        type: "Arithmetic",
-        emoji: "Σ",
-        keywords: ["sigma", "sum", "total", "series", "math"]
-    },
-    {
-        label: "Integral",
-        type: "Arithmetic",
-        emoji: "∫",
-        keywords: ["calculus", "integration", "area", "math"]
-    },
-    {
-        label: "Partial",
-        type: "Arithmetic",
-        emoji: "∂",
-        keywords: ["derivative", "calculus", "partial"]
-    },
-    {
-        label: "Delta",
-        type: "Arithmetic",
-        emoji: "Δ",
-        keywords: ["delta", "change", "difference", "triangle"]
-    },
-    {
-        label: "varies as",
-        type: "Arithmetic",
-        emoji: "∝",
-        keywords: ["proportional", "varies as", "relation"]
-    },
-    {
-        label: "proof",
-        type: "Arithmetic",
-        emoji: "∴",
-        keywords: ["therefore", "conclusion", "logic", "proof"]
-    },
-    {
-        label: "Since",
-        type: "Arithmetic",
-        emoji: "∵",
-        keywords: ["because", "since", "reason", "logic"]
-    },
-    {
-        label: "Diameter",
-        type: "Arithmetic",
-        emoji: "∅",
-        keywords: ["empty set", "null", "diameter", "math"]
-    },
-    {
-        label: "element of",
-        type: "Arithmetic",
-        emoji: "∈",
-        keywords: ["element of", "belongs to", "set theory"]
-    },
-    {
-        label: "Angle",
-        type: "Arithmetic",
-        emoji: "∠",
-        keywords: ["angle", "geometry", "corner"]
-    },
-    {
-        label: "right angle",
-        type: "Arithmetic",
-        emoji: "⊥",
-        keywords: ["perpendicular", "orthogonal", "right angle"]
-    },
-    {
-        label: "Fn",
-        type: "Arithmetic",
-        emoji: "ƒ",
-        keywords: ["function", "math", "mapping"]
-    },
-     // --- Happy/Positive ---
-    {
-        label: "Basic Smile",
-        type: "Happy/Positive",
-        emoji: ":)", 
-        keywords: [":-)", "happy", "smile", "joy"]
-    },
-    {
-        label: "Big Grin",
-        type: "Happy/Positive",
-        emoji: ":D",
-        keywords: [":-D", "=D", "laugh", "big smile"]
-    },
-    {
-        label: "Wink",
-        type: "Happy/Positive",
-        emoji: ";)",
-        keywords: [";-)", "wink", "flirt", "sarcasm"]
-    },
-    {
-        label: "Tongue",
-        type: "Happy/Positive",
-        emoji: ":P",
-        keywords: [":-P", ":p", ":-p", "tongue", "silly", "playful"]
-    },
-    {
-        label: "Kiss",
-        type: "Happy/Positive",
-        emoji: ":*",
-        keywords: [":-*", ":x", "kiss", "smooch", "love"]
-    },
-    {
-        label: "Heart",
-        type: "Happy/Positive",
-        emoji: "<3",
-        keywords: ["heart", "love", "less than three"]
-    },
-    
-    // --- Neutral/Skeptical ---
-    {
-        label: "unsure",
-        type: "Neutral/Skeptical",
-        emoji: ":/",
-        keywords: [":-/", ":\\", ":-\\", "skeptical", "unsure", "annoyed", "uneasy"]
-    },
-    {
-        label: "Neutral",
-        type: "Neutral/Skeptical",
-        emoji: ":|",
-        keywords: [":-|", "straight face", "indifferent", "no expression"]
-    },
-    {
-        label: "Shock",
-        type: "Neutral/Skeptical",
-        emoji: ":O",
-        keywords: [":-O", ":o", "shock", "surprise", "yell"]
-    },
+  //    currency
+  {
+    label: "USD",
+    type: "Currency",
+    emoji: "$",
+    keywords: ["dollar", "usd", "money", "cash", "finance"],
+  },
+  {
+    label: "Euro",
+    type: "Currency",
+    emoji: "€",
+    keywords: ["euro", "eur", "europe", "money", "cash"],
+  },
+  {
+    label: "British Pound",
+    type: "Currency",
+    emoji: "£",
+    keywords: ["pound", "gbp", "sterling", "money", "uk"],
+  },
+  {
+    label: "Yen / Yuan",
+    type: "Currency",
+    emoji: "¥",
+    keywords: ["yen", "yuan", "jpy", "cny", "japan", "china"],
+  },
+  {
+    label: "INR",
+    type: "Currency",
+    emoji: "₹",
+    keywords: ["rupee", "inr", "india", "money"],
+  },
+  {
+    label: "Russian Ruble",
+    type: "Currency",
+    emoji: "₽",
+    keywords: ["ruble", "rub", "russia", "money"],
+  },
+  {
+    label: "South Korean Won",
+    type: "Currency",
+    emoji: "₩",
+    keywords: ["won", "krw", "korea", "money"],
+  },
+  {
+    label: "Thai Baht",
+    type: "Currency",
+    emoji: "฿",
+    keywords: ["baht", "thb", "thailand", "money"],
+  },
+  {
+    label: "Turkish Lira",
+    type: "Currency",
+    emoji: "₺",
+    keywords: ["lira", "try", "turkey", "money"],
+  },
+  {
+    label: "Swiss Franc",
+    type: "Currency",
+    emoji: "₣",
+    keywords: ["franc", "chf", "switzerland", "money", "cash"],
+  },
+  {
+    label: "Israeli Shekel",
+    type: "Currency",
+    emoji: "₪",
+    keywords: ["shekel", "ils", "israel", "money"],
+  },
+  {
+    label: "VN Dong",
+    type: "Currency",
+    emoji: "₫",
+    keywords: ["dong", "vnd", "vietnam", "money"],
+  },
+  {
+    label: "Hryvnia",
+    type: "Currency",
+    emoji: "₴",
+    keywords: ["hryvnia", "uah", "ukraine", "money"],
+  },
+  {
+    label: "Peso",
+    type: "Currency",
+    emoji: "₱",
+    keywords: ["peso", "php", "philippines", "money"],
+  },
+  {
+    label: "Cedi",
+    type: "Currency",
+    emoji: "₵",
+    keywords: ["cedi", "ghs", "ghana", "money"],
+  },
+  {
+    label: "Tugrik",
+    type: "Currency",
+    emoji: "₮",
+    keywords: ["tugrik", "mnt", "mongolia", "money"],
+  },
+  {
+    label: "Lao Kip",
+    type: "Currency",
+    emoji: "₭",
+    keywords: ["kip", "lak", "laos", "money"],
+  },
+  {
+    label: "Sucre",
+    type: "Currency",
+    emoji: "₳",
+    keywords: ["sucre", "ecuador", "historic", "money"],
+  },
+  {
+    label: "cash",
+    type: "Currency",
+    emoji: "¤",
+    keywords: ["generic", "currency", "cash", "money"],
+  },
+  // --- Arithmetic / Math ---
+  {
+    label: "Plus",
+    type: "Arithmetic",
+    emoji: "+",
+    keywords: ["add", "plus", "sum", "increase", "positive"],
+  },
+  {
+    label: "Minus",
+    type: "Arithmetic",
+    emoji: "-",
+    keywords: ["subtract", "minus", "difference", "decrease", "negative"],
+  },
+  {
+    label: "Times",
+    type: "Arithmetic",
+    emoji: "×", // Unicode 'Multiplication Sign'
+    keywords: ["multiply", "times", "product", "cross"],
+  },
+  {
+    label: "Divide",
+    type: "Arithmetic",
+    emoji: "÷", // Unicode 'Division Sign'
+    keywords: ["divide", "quotient", "ratio"],
+  },
+  {
+    label: "Equals",
+    type: "Arithmetic",
+    emoji: "=",
+    keywords: ["equal", "result", "is", "equality"],
+  },
+  {
+    label: "Not Equal",
+    type: "Arithmetic",
+    emoji: "≠",
+    keywords: ["not equal", "unequal", "difference"],
+  },
+  {
+    label: "Approx",
+    type: "Arithmetic",
+    emoji: "≈",
+    keywords: ["approximate", "almost equal", "estimate"],
+  },
+  {
+    label: "Less Than",
+    type: "Arithmetic",
+    emoji: "<",
+    keywords: ["smaller", "less", "lower"],
+  },
+  {
+    label: "Greater Than",
+    type: "Arithmetic",
+    emoji: ">",
+    keywords: ["bigger", "greater", "higher"],
+  },
+  {
+    label: "Equal To",
+    type: "Arithmetic",
+    emoji: "≤",
+    keywords: ["less equal", "at most"],
+  },
+  {
+    label: "Greater Equal",
+    type: "Arithmetic",
+    emoji: "≥",
+    keywords: ["greater equal", "at least"],
+  },
+  {
+    label: "Percent",
+    type: "Arithmetic",
+    emoji: "%",
+    keywords: ["percentage", "rate", "ratio", "out of 100"],
+  },
+  {
+    label: "Permille",
+    type: "Arithmetic",
+    emoji: "‰",
+    keywords: ["per thousand", "basis points", "rate"],
+  },
+  {
+    label: "Infinity",
+    type: "Arithmetic",
+    emoji: "∞",
+    keywords: ["endless", "limitless", "math", "forever"],
+  },
+  {
+    label: "Square Root",
+    type: "Arithmetic",
+    emoji: "√",
+    keywords: ["root", "radical", "math"],
+  },
+  {
+    label: "Power",
+    type: "Arithmetic",
+    emoji: "^",
+    keywords: ["caret", "power", "exponent", "to the power of"],
+  },
+  {
+    label: "Pi",
+    type: "Arithmetic",
+    emoji: "π",
+    keywords: ["pi", "constant", "geometry", "circle", "3.14"],
+  },
+  {
+    label: "Sigma",
+    type: "Arithmetic",
+    emoji: "Σ",
+    keywords: ["sigma", "sum", "total", "series", "math"],
+  },
+  {
+    label: "Integral",
+    type: "Arithmetic",
+    emoji: "∫",
+    keywords: ["calculus", "integration", "area", "math"],
+  },
+  {
+    label: "Partial",
+    type: "Arithmetic",
+    emoji: "∂",
+    keywords: ["derivative", "calculus", "partial"],
+  },
+  {
+    label: "Delta",
+    type: "Arithmetic",
+    emoji: "Δ",
+    keywords: ["delta", "change", "difference", "triangle"],
+  },
+  {
+    label: "varies as",
+    type: "Arithmetic",
+    emoji: "∝",
+    keywords: ["proportional", "varies as", "relation"],
+  },
+  {
+    label: "proof",
+    type: "Arithmetic",
+    emoji: "∴",
+    keywords: ["therefore", "conclusion", "logic", "proof"],
+  },
+  {
+    label: "Since",
+    type: "Arithmetic",
+    emoji: "∵",
+    keywords: ["because", "since", "reason", "logic"],
+  },
+  {
+    label: "Diameter",
+    type: "Arithmetic",
+    emoji: "∅",
+    keywords: ["empty set", "null", "diameter", "math"],
+  },
+  {
+    label: "element of",
+    type: "Arithmetic",
+    emoji: "∈",
+    keywords: ["element of", "belongs to", "set theory"],
+  },
+  {
+    label: "Angle",
+    type: "Arithmetic",
+    emoji: "∠",
+    keywords: ["angle", "geometry", "corner"],
+  },
+  {
+    label: "right angle",
+    type: "Arithmetic",
+    emoji: "⊥",
+    keywords: ["perpendicular", "orthogonal", "right angle"],
+  },
+  {
+    label: "Fn",
+    type: "Arithmetic",
+    emoji: "ƒ",
+    keywords: ["function", "math", "mapping"],
+  },
+  // --- Happy/Positive ---
+  {
+    label: "Basic Smile",
+    type: "Happy/Positive",
+    emoji: ":)",
+    keywords: [":-)", "happy", "smile", "joy"],
+  },
+  {
+    label: "Big Grin",
+    type: "Happy/Positive",
+    emoji: ":D",
+    keywords: [":-D", "=D", "laugh", "big smile"],
+  },
+  {
+    label: "Wink",
+    type: "Happy/Positive",
+    emoji: ";)",
+    keywords: [";-)", "wink", "flirt", "sarcasm"],
+  },
+  {
+    label: "Tongue",
+    type: "Happy/Positive",
+    emoji: ":P",
+    keywords: [":-P", ":p", ":-p", "tongue", "silly", "playful"],
+  },
+  {
+    label: "Kiss",
+    type: "Happy/Positive",
+    emoji: ":*",
+    keywords: [":-*", ":x", "kiss", "smooch", "love"],
+  },
+  {
+    label: "Heart",
+    type: "Happy/Positive",
+    emoji: "<3",
+    keywords: ["heart", "love", "less than three"],
+  },
 
-    // --- Negative/Sad ---
-    {
-        label: "Frown",
-        type: "Negative/Sad",
-        emoji: ":(",
-        keywords: [":-(", "=(", "sad", "frown", "unhappy"]
-    },
-    {
-        label: "Crying",
-        type: "Negative/Sad",
-        emoji: ":'(",
-        keywords: [":'-(", "cry", "tear", "sobbing"]
-    },
-    {
-        label: "Angry",
-        type: "Negative/Sad",
-        emoji: ">:(",
-        keywords: [">:-(", "mad", "angry", "furious"]
-    },
+  // --- Neutral/Skeptical ---
+  {
+    label: "unsure",
+    type: "Neutral/Skeptical",
+    emoji: ":/",
+    keywords: [":-/", ":\\", ":-\\", "skeptical", "unsure", "annoyed", "uneasy"],
+  },
+  {
+    label: "Neutral",
+    type: "Neutral/Skeptical",
+    emoji: ":|",
+    keywords: [":-|", "straight face", "indifferent", "no expression"],
+  },
+  {
+    label: "Shock",
+    type: "Neutral/Skeptical",
+    emoji: ":O",
+    keywords: [":-O", ":o", "shock", "surprise", "yell"],
+  },
 
-    // --- Other / Special ---
-    {
-        label: "Shrug",
-        type: "Others",
-        emoji: "¯\\_(ツ)_/¯",
-        keywords: ["shrugging", "i don't know", "whatever", "don't care"]
-    },
-    {
-        label: "Look of Disapproval",
-        type: "Others",
-        emoji: "ಠ_ಠ",
-        keywords: ["disapproval", "annoyed", "side eye", "stare"]
-    },
-    {
-        label: "Table Flip",
-        type: "Others",
-        emoji: "(╯°□°）╯︵ ┻━┻",
-        keywords: ["table flip", "rage", "frustration", "anger"]
-    }
+  // --- Negative/Sad ---
+  {
+    label: "Frown",
+    type: "Negative/Sad",
+    emoji: ":(",
+    keywords: [":-(", "=(", "sad", "frown", "unhappy"],
+  },
+  {
+    label: "Crying",
+    type: "Negative/Sad",
+    emoji: ":'(",
+    keywords: [":'-(", "cry", "tear", "sobbing"],
+  },
+  {
+    label: "Angry",
+    type: "Negative/Sad",
+    emoji: ">:(",
+    keywords: [">:-(", "mad", "angry", "furious"],
+  },
+
+  // --- Other / Special ---
+  {
+    label: "Shrug",
+    type: "Others",
+    emoji: "¯\\_(ツ)_/¯",
+    keywords: ["shrugging", "i don't know", "whatever", "don't care"],
+  },
+  {
+    label: "Look of Disapproval",
+    type: "Others",
+    emoji: "ಠ_ಠ",
+    keywords: ["disapproval", "annoyed", "side eye", "stare"],
+  },
+  {
+    label: "Table Flip",
+    type: "Others",
+    emoji: "(╯°□°）╯︵ ┻━┻",
+    keywords: ["table flip", "rage", "frustration", "anger"],
+  },
 ];
 
 export const graphicEmojiArray: Emojies[] = [
-    // --- Faces ---
-    {
-        label: "Grin",
-        type: "Faces",
-        emoji: "😀", 
-        keywords: ["happy", "smile", "joy", "grin", "face"]
-    },
-    {
-        label: "Smile",
-        type: "Faces",
-        emoji: "😊",
-        keywords: ["bliss", "pleased", "happy", "cute", "smiling eyes"]
-    },
-    {
-        label: "joy",
-        type: "Faces",
-        emoji: "😂",
-        keywords: ["laughing", "crying", "joy", "lol", "funny"]
-    },
-    {
-        label: "Wink",
-        type: "Faces",
-        emoji: "😉",
-        keywords: ["playful", "flirtatious", "sarcasm", "wink"]
-    },
-    {
-        label: ":3",
-        type: "Faces",
-        emoji: "😗",
-        keywords: ["kiss", "smooch", "love", "pucker"]
-    },
-    {
-        label: "Think",
-        type: "Faces",
-        emoji: "🤔",
-        keywords: ["thinking", "pondering", "doubt", "consideration"]
-    },
-    {
-        label: "Rolling Eyes",
-        type: "Faces",
-        emoji: "🙄",
-        keywords: ["annoyance", "disdain", "sarcasm", "boredom", "eye roll"]
-    },
-    {
-        label: "Neutral",
-        type: "Faces",
-        emoji: "😐",
-        keywords: ["indifferent", "straight face", "unimpressed", "neutral"]
-    },
-    {
-        label: "blank face",
-        type: "Faces",
-        emoji: "😑",
-        keywords: ["blank", "flat", "apathetic", "no expression"]
-    },
-    {
-        label: "sad",
-        type: "Faces",
-        emoji: "😞",
-        keywords: ["sad", "unhappy", "dejected", "disappointment"]
-    },
-    {
-        label: "tear",
-        type: "Faces",
-        emoji: "😢",
-        keywords: ["sad", "tear", "unhappy", "crying", "sob"]
-    },
-    {
-        label: "angry",
-        type: "Faces",
-        emoji: "😡",
-        keywords: ["angry", "mad", "furious", "pout", "rage"]
-    },
-    {
-        label: "shock",
-        type: "Faces",
-        emoji: "😲",
-        keywords: ["shock", "surprise", "amazement", "gasp"]
-    },
-    {
-        label: "Zipped Mouth",
-        type: "Faces",
-        emoji: "🤐",
-        keywords: ["silent", "secret", "mute", "no comment"]
-    },
-    {
-        label: "Sleep",
-        type: "Faces",
-        emoji: "😴",
-        keywords: ["sleep", "tired", "zzz", "bedtime"]
-    },
-    {
-        label: "joyful",
-        type: "Faces",
-        emoji: "😁", 
-        keywords: ["joyful", "beaming", "happy", "big grin"]
-    },
-    {
-        label: "Sweat",
-        type: "Faces",
-        emoji: "😅", 
-        keywords: ["relief", "nervous", "awkward", "sweat", "phew"]
-    },
-    {
-        label: "Halo",
-        type: "Faces",
-        emoji: "😇", 
-        keywords: ["angel", "innocent", "pure", "good", "halo"]
-    },
-    {
-        label: "down",
-        type: "Faces",
-        emoji: "😔",
-        keywords: ["sad", "thoughtful", "pensive", "melancholy", "down"]
-    },
-    {
-        label: "Confused",
-        type: "Faces",
-        emoji: "😕",
-        keywords: ["confused", "puzzled", "uncertain", "huh"]
-    },
-    {
-        label: "Weary",
-        type: "Faces",
-        emoji: "😩",
-        keywords: ["tired", "weary", "frustrated", "distressed", "ugh"]
-    },
-    {
-        label: "pain",
-        type: "Faces",
-        emoji: "😫",
-        keywords: ["struggle", "pain", "determined", "perseverance"]
-    },
-    {
-        label: "Fear",
-        type: "Faces",
-        emoji: "😱",
-        keywords: ["horror", "fear", "scared", "shock", "scream"]
-    },
-    {
-        label: "Hushed",
-        type: "Faces",
-        emoji: "🤫",
-        keywords: ["quiet", "shocked", "surprised", "hush", "whisper"]
-    },
-    {
-        label: "Hot",
-        type: "Faces",
-        emoji: "🥵",
-        keywords: ["hot", "sweaty", "heatwave", "fever", "overheated"]
-    },
-    {
-        label: "Cold",
-        type: "Faces",
-        emoji: "🥶",
-        keywords: ["cold", "freezing", "ice", "shivering"]
-    },
-    {
-        label: "Woozy",
-        type: "Faces",
-        emoji: "🥴",
-        keywords: ["dizzy", "drunk", "woozy", "sick", "disoriented"]
-    },
-    {
-        label: "oops",
-        type: "Faces",
-        emoji: "🤭",
-        keywords: ["giggle", "oops", "surprise", "chuckle", "covering mouth"]
-    },
-    {
-        label: "cowboy",
-        type: "Faces",
-        emoji: "🤠",
-        keywords: ["cowboy", "western", "yeehaw", "rodeo"]
-    },
-    {
-        label: "party",
-        type: "Faces",
-        emoji: "🥳",
-        keywords: ["party", "celebration", "birthday", "fun"]
-    }
+  // --- Faces ---
+  {
+    label: "Grin",
+    type: "Faces",
+    emoji: "😀",
+    keywords: ["happy", "smile", "joy", "grin", "face"],
+  },
+  {
+    label: "Smile",
+    type: "Faces",
+    emoji: "😊",
+    keywords: ["bliss", "pleased", "happy", "cute", "smiling eyes"],
+  },
+  {
+    label: "joy",
+    type: "Faces",
+    emoji: "😂",
+    keywords: ["laughing", "crying", "joy", "lol", "funny"],
+  },
+  {
+    label: "Wink",
+    type: "Faces",
+    emoji: "😉",
+    keywords: ["playful", "flirtatious", "sarcasm", "wink"],
+  },
+  {
+    label: ":3",
+    type: "Faces",
+    emoji: "😗",
+    keywords: ["kiss", "smooch", "love", "pucker"],
+  },
+  {
+    label: "love",
+    type: "Faces",
+    emoji: "😍",
+    keywords: ["love", "heart", "eyes", "adoration", "excited"],
+  },
+  {
+    label: "face hearts",
+    type: "Faces",
+    emoji: "🥰",
+    keywords: ["love", "hearts", "caring", "excited", "in_love"],
+  },
+  {
+    label: "kiss",
+    type: "Faces",
+    emoji: "😘",
+    keywords: ["kiss", "love", "blowing", "affection", "gratitude"],
+  },
+  {
+    label: "Think",
+    type: "Faces",
+    emoji: "🤔",
+    keywords: ["thinking", "pondering", "doubt", "consideration"],
+  },
+  {
+    label: "Rolling Eyes",
+    type: "Faces",
+    emoji: "🙄",
+    keywords: ["annoyance", "disdain", "sarcasm", "boredom", "eye roll"],
+  },
+  {
+    label: "Neutral",
+    type: "Faces",
+    emoji: "😐",
+    keywords: ["indifferent", "straight face", "unimpressed", "neutral"],
+  },
+  {
+    label: "blank face",
+    type: "Faces",
+    emoji: "😑",
+    keywords: ["blank", "flat", "apathetic", "no expression"],
+  },
+  {
+    label: "sad",
+    type: "Faces",
+    emoji: "😞",
+    keywords: ["sad", "unhappy", "dejected", "disappointment"],
+  },
+  {
+    label: "tear",
+    type: "Faces",
+    emoji: "😢",
+    keywords: ["sad", "tear", "unhappy", "crying", "sob"],
+  },
+  {
+    label: "angry",
+    type: "Faces",
+    emoji: "😡",
+    keywords: ["angry", "mad", "furious", "pout", "rage"],
+  },
+  {
+    label: "shock",
+    type: "Faces",
+    emoji: "😲",
+    keywords: ["shock", "surprise", "amazement", "gasp"],
+  },
+  {
+    label: "Zipped Mouth",
+    type: "Faces",
+    emoji: "🤐",
+    keywords: ["silent", "secret", "mute", "no comment"],
+  },
+  {
+    label: "Sleep",
+    type: "Faces",
+    emoji: "😴",
+    keywords: ["sleep", "tired", "zzz", "bedtime"],
+  },
+  {
+    label: "joyful",
+    type: "Faces",
+    emoji: "😁",
+    keywords: ["joyful", "beaming", "happy", "big grin"],
+  },
+  {
+    label: "Sweat",
+    type: "Faces",
+    emoji: "😅",
+    keywords: ["relief", "nervous", "awkward", "sweat", "phew"],
+  },
+  {
+    label: "Halo",
+    type: "Faces",
+    emoji: "😇",
+    keywords: ["angel", "innocent", "pure", "good", "halo"],
+  },
+  {
+    label: "down",
+    type: "Faces",
+    emoji: "😔",
+    keywords: ["sad", "thoughtful", "pensive", "melancholy", "down"],
+  },
+  {
+    label: "Confused",
+    type: "Faces",
+    emoji: "😕",
+    keywords: ["confused", "puzzled", "uncertain", "huh"],
+  },
+  {
+    label: "Weary",
+    type: "Faces",
+    emoji: "😩",
+    keywords: ["tired", "weary", "frustrated", "distressed", "ugh"],
+  },
+  {
+    label: "pain",
+    type: "Faces",
+    emoji: "😫",
+    keywords: ["struggle", "pain", "determined", "perseverance"],
+  },
+  {
+    label: "Fear",
+    type: "Faces",
+    emoji: "😱",
+    keywords: ["horror", "fear", "scared", "shock", "scream"],
+  },
+  {
+    label: "Hushed",
+    type: "Faces",
+    emoji: "🤫",
+    keywords: ["quiet", "shocked", "surprised", "hush", "whisper"],
+  },
+  {
+    label: "Hot",
+    type: "Faces",
+    emoji: "🥵",
+    keywords: ["hot", "sweaty", "heatwave", "fever", "overheated"],
+  },
+  {
+    label: "Cold",
+    type: "Faces",
+    emoji: "🥶",
+    keywords: ["cold", "freezing", "ice", "shivering"],
+  },
+  {
+    label: "Woozy",
+    type: "Faces",
+    emoji: "🥴",
+    keywords: ["dizzy", "drunk", "woozy", "sick", "disoriented"],
+  },
+  {
+    label: "oops",
+    type: "Faces",
+    emoji: "🤭",
+    keywords: ["giggle", "oops", "surprise", "chuckle", "covering mouth"],
+  },
+  {
+    label: "cowboy",
+    type: "Faces",
+    emoji: "🤠",
+    keywords: ["cowboy", "western", "yeehaw", "rodeo"],
+  },
+  {
+    label: "party",
+    type: "Faces",
+    emoji: "🥳",
+    keywords: ["party", "celebration", "birthday", "fun"],
+  },
+  {
+    label: "cat smile",
+    type: "Faces",
+    emoji: "😸",
+    keywords: ["cat", "happy", "grinning", "eyes"],
+  },
+  {
+    label: "cat joy",
+    type: "Faces",
+    emoji: "😹",
+    keywords: ["cat", "tears", "joy", "laugh", "crying"],
+  },
+  {
+    label: "cat",
+    type: "Faces",
+    emoji: "😻",
+    keywords: ["cat", "love", "heart", "adoration", "crush"],
+  },
+  {
+    label: "cat_wry",
+    type: "Faces",
+    emoji: "😼",
+    keywords: ["cat", "smirk", "wry", "cynical", "sarcasm"],
+  },
+  {
+    label: "kissing_cat",
+    type: "Faces",
+    emoji: "😽",
+    keywords: ["cat", "kiss", "muah", "affection", "smooch"],
+  },
+  {
+    label: "pouting_cat",
+    type: "Faces",
+    emoji: "😾",
+    keywords: ["cat", "pout", "angry", "grumpy", "mad"],
+  },
+  {
+    label: "crying_cat",
+    type: "Faces",
+    emoji: "😿",
+    keywords: ["cat", "sad", "cry", "tear", "unhappy"],
+  },
+  {
+    label: "weary_cat",
+    type: "Faces",
+    emoji: "🙀",
+    keywords: ["cat", "tired", "scared", "shocked", "yawning"],
+  },
+  // hands
+  {
+    label: "thumb up",
+    type: "Gestures",
+    emoji: "👍",
+    keywords: ["thumb", "up", "like", "agree", "yes", "good"],
+  },
+  {
+    label: "thumb down",
+    type: "Gestures",
+    emoji: "👎",
+    keywords: ["thumb", "down", "dislike", "disagree", "no", "bad"],
+  },
+  {
+    label: "ok",
+    type: "Gestures",
+    emoji: "👌",
+    keywords: ["ok", "perfect", "good", "zero", "circle"],
+  },
+  {
+    label: "victory",
+    type: "Gestures",
+    emoji: "✌️",
+    keywords: ["peace", "victory", "two", "fingers", "v"],
+  },
+  {
+    label: "hand wave",
+    type: "Gestures",
+    emoji: "👋",
+    keywords: ["wave", "hello", "goodbye", "hand"],
+  },
+  {
+    label: "call me",
+    type: "Gestures",
+    emoji: "🤙",
+    keywords: ["call", "me", "shaka", "hang_loose", "surf"],
+  },
+  {
+    label: "clap",
+    type: "Gestures",
+    emoji: "👏",
+    keywords: ["clap", "applause", "bravo", "congratulations"],
+  },
+  {
+    label: "raised hands",
+    type: "Gestures",
+    emoji: "🙌",
+    keywords: ["raise", "hands", "celebrate", "hooray", "praise"],
+  },
+  {
+    label: "fist bump",
+    type: "Gestures",
+    emoji: "👊",
+    keywords: ["fist", "punch", "bump", "hello", "violence"],
+  },
+  {
+    label: "fist",
+    type: "Gestures",
+    emoji: "🤛",
+    keywords: ["fist", "left", "punch", "hand", "oncoming"],
+  },
+  {
+    label: "index",
+    type: "Gestures",
+    emoji: "👉",
+    keywords: ["finger", "point", "right", "direction", "index"],
+  },
+  {
+    label: "pointing",
+    type: "Gestures",
+    emoji: "👆",
+    keywords: ["finger", "point", "up", "direction", "index"],
+  },
+  {
+    label: "vulcan",
+    type: "Gestures",
+    emoji: "🖖",
+    keywords: ["vulcan", "spock", "live", "prosper", "star_trek"],
+  },
+  {
+    label: "crossed fingers",
+    type: "Gestures",
+    emoji: "🤞",
+    keywords: ["fingers", "crossed", "luck", "hope", "wish"],
+  },
+  {
+    label: "open hands",
+    type: "Gestures",
+    emoji: "👐",
+    keywords: ["open", "hands", "hug", "give", "receive", "caring"],
+  },
+  {
+    label: "folded hands",
+    type: "Gestures",
+    emoji: "🙏",
+    keywords: ["pray", "hands", "thanks", "please", "namaste", "hope"],
+  },
+  {
+    label: "hand shake",
+    type: "Gestures",
+    emoji: "🤝",
+    keywords: ["shake", "handshake", "deal", "meeting", "agreement"],
+  },
+  {
+    label: "index",
+    type: "Gestures",
+    emoji: "☝️",
+    keywords: ["index", "up", "point", "number_one", "attention"],
+  },
+  {
+    label: "pointing left",
+    type: "Gestures",
+    emoji: "👈",
+    keywords: ["finger", "point", "left", "direction", "index"],
+  },
+  {
+    label: "pointing down",
+    type: "Gestures",
+    emoji: "👇",
+    keywords: ["finger", "point", "down", "direction", "index"],
+  },
+  {
+    label: "rockon",
+    type: "Gestures",
+    emoji: "🤘",
+    keywords: ["rock", "horn", "metal", "sign", "devil", "music"],
+  },
+  {
+    label: "Rocker",
+    type: "Gestures",
+    emoji: "🤟",
+    keywords: ["i_love_you", "sign", "hand", "iloveyou"],
+  },
+  {
+    label: "pinch",
+    type: "Gestures",
+    emoji: "🤏",
+    keywords: ["pinch", "small", "little", "tiny", "amount"],
+  },
+  {
+    label: "writing",
+    type: "Gestures",
+    emoji: "✍️",
+    keywords: ["write", "hand", "pen", "note", "sign", "author"],
+  },
+  {
+    label: "selfie",
+    type: "Gestures",
+    emoji: "🤳",
+    keywords: ["selfie", "phone", "camera", "picture", "photo"],
+  },
+  // positive
+  {
+    label: "100",
+    type: "Positive or Negative",
+    emoji: "💯",
+    keywords: ["100", "perfect", "score", "top", "success", "excellent"],
+  },
+  {
+    label: "popper",
+    type: "Positive or Negative",
+    emoji: "🎉",
+    keywords: ["party", "celebration", "fun", "surprise", "congratulations"],
+  },
+  {
+    label: "check",
+    type: "Positive or Negative",
+    emoji: "✅",
+    keywords: ["check", "mark", "yes", "correct", "done", "complete"],
+  },
+  {
+    label: "star",
+    type: "Positive or Negative",
+    emoji: "🌟",
+    keywords: ["star", "shine", "quality", "magic", "night"],
+  },
+  {
+    label: "sparkle",
+    type: "Positive or Negative",
+    emoji: "✨",
+    keywords: ["sparkle", "glitter", "clean", "magic", "new"],
+  },
+  {
+    label: "gift",
+    type: "Positive or Negative",
+    emoji: "🎁",
+    keywords: ["gift", "present", "surprise", "birthday", "giving"],
+  },
+  {
+    label: "trophy",
+    type: "Positive or Negative",
+    emoji: "🏆",
+    keywords: ["trophy", "winner", "cup", "award", "achievement"],
+  },
+  {
+    label: "money",
+    type: "Positive or Negative",
+    emoji: "💰",
+    keywords: ["money", "cash", "wealth", "payment", "rich"],
+  },
+  {
+    label: "red heart",
+    type: "Positive or Negative",
+    emoji: "❤️",
+    keywords: ["love", "red", "romance", "affection", "heart"],
+  },
+  {
+    label: "orange heart",
+    type: "Positive or Negative",
+    emoji: "🧡",
+    keywords: ["love", "orange", "warmth", "caring", "heart"],
+  },
+  {
+    label: "yellow heart",
+    type: "Positive or Negative",
+    emoji: "💛",
+    keywords: ["love", "yellow", "friendship", "happiness", "heart"],
+  },
+  {
+    label: "green heart",
+    type: "Positive or Negative",
+    emoji: "💚",
+    keywords: ["love", "green", "nature", "health", "heart"],
+  },
+  {
+    label: "blue heart",
+    type: "Positive or Negative",
+    emoji: "💙",
+    keywords: ["love", "blue", "trust", "peace", "heart"],
+  },
+  {
+    label: "purple heart",
+    type: "Positive or Negative",
+    emoji: "💜",
+    keywords: ["love", "purple", "compassion", "sensitive", "heart"],
+  },
+  {
+    label: "blackheart",
+    type: "Positive or Negative",
+    emoji: "🖤",
+    keywords: ["love", "black", "sadness", "dark", "style", "heart"],
+  },
+  {
+    label: "white heart",
+    type: "Positive or Negative",
+    emoji: "🤍",
+    keywords: ["love", "white", "purity", "peace", "heart"],
+  },
+  //   negative
+  {
+    label: "cross",
+    type: "Positive or Negative",
+    emoji: "❌",
+    keywords: ["cross", "mark", "no", "incorrect", "wrong", "delete"],
+  },
+  {
+    label: "ban",
+    type: "Positive or Negative",
+    emoji: "🚫",
+    keywords: ["no", "forbidden", "not_allowed", "block", "stop", "ban"],
+  },
+  {
+    label: "stop",
+    type: "Positive or Negative",
+    emoji: "🛑",
+    keywords: ["stop", "sign", "danger", "halt", "red"],
+  },
+  {
+    label: "?",
+    type: "Positive or Negative",
+    emoji: "❓",
+    keywords: ["question", "mark", "doubt", "confusion", "unknown"],
+  },
+  {
+    label: "fire",
+    type: "Positive or Negative",
+    emoji: "🔥",
+    keywords: ["fire", "flame", "hot", "danger", "burn", "trouble"],
+  },
+  {
+    label: "skull",
+    type: "Positive or Negative",
+    emoji: "💀",
+    keywords: ["skull", "death", "danger", "poison", "warning"],
+  },
+  {
+    label: "bomb",
+    type: "Positive or Negative",
+    emoji: "💣",
+    keywords: ["bomb", "explosion", "disaster", "warning", "attack"],
+  },
+  {
+    label: "syringe",
+    type: "Positive or Negative",
+    emoji: "💉",
+    keywords: ["syringe", "needle", "medicine", "illness", "hurt"],
+  },
+
+  //   animals
+
+  {
+    label: "cat",
+    type: "Faces",
+    emoji: "😺",
+    keywords: ["cat", "grinning", "smile", "happy"],
+  },
+  {
+    label: "dog face",
+    type: "Animals",
+    emoji: "🐶",
+    keywords: ["dog", "pet", "puppy", "face", "animal"],
+  },
+  {
+    label: "dog",
+    type: "Animals",
+    emoji: "🐕",
+    keywords: ["dog", "pet", "puppy", "animal", "walk"],
+  },
+  {
+    label: "poodle",
+    type: "Animals",
+    emoji: "🐩",
+    keywords: ["poodle", "dog", "fancy", "animal"],
+  },
+  {
+    label: "bear",
+    type: "Animals",
+    emoji: "🐻",
+    keywords: ["bear", "animal", "cub", "wild"],
+  },
+  {
+    label: "koala",
+    type: "Animals",
+    emoji: "🐨",
+    keywords: ["koala", "animal", "marsupial", "australia"],
+  },
+  {
+    label: "panda",
+    type: "Animals",
+    emoji: "🐼",
+    keywords: ["panda", "animal", "bamboo", "china"],
+  },
+  {
+    label: "polar bear",
+    type: "Animals",
+    emoji: "🐻‍❄️",
+    keywords: ["polar_bear", "animal", "ice", "snow", "white"],
+  },
+  {
+    label: "rabbit",
+    type: "Animals",
+    emoji: "🐇",
+    keywords: ["rabbit", "bunny", "pet", "animal", "easter"],
+  },
+  {
+    label: "fox",
+    type: "Animals",
+    emoji: "🦊",
+    keywords: ["fox", "animal", "wild", "sly", "clever"],
+  },
+  {
+    label: "wolf",
+    type: "Animals",
+    emoji: "🐺",
+    keywords: ["wolf", "animal", "wild", "dog", "pack"],
+  },
+  {
+    label: "horse",
+    type: "Animals",
+    emoji: "🐴",
+    keywords: ["horse", "pony", "stable", "equestrian"],
+  },
+  {
+    label: "unicorn",
+    type: "Animals",
+    emoji: "🦄",
+    keywords: ["unicorn", "magic", "fantasy", "mythical"],
+  },
+  {
+    label: "pig",
+    type: "Animals",
+    emoji: "🐷",
+    keywords: ["pig", "hog", "oink", "farm", "bacon"],
+  },
+  {
+    label: "cow",
+    type: "Animals",
+    emoji: "🐮",
+    keywords: ["cow", "bull", "milk", "farm", "moo"],
+  },
+  {
+    label: "boar",
+    type: "Animals",
+    emoji: "🐗",
+    keywords: ["boar", "pig", "wild", "tusk"],
+  },
+  {
+    label: "sheep",
+    type: "Animals",
+    emoji: "🐑",
+    keywords: ["sheep", "lamb", "wool", "farm"],
+  },
+  {
+    label: "goat",
+    type: "Animals",
+    emoji: "🐐",
+    keywords: ["goat", "ram", "farm", "horns"],
+  },
+  {
+    label: "camel",
+    type: "Animals",
+    emoji: "🐫",
+    keywords: ["camel", "desert", "hump", "africa"],
+  },
+  {
+    label: "safari",
+    type: "Animals",
+    emoji: "🐘",
+    keywords: ["elephant", "trunk", "safari", "big"],
+  },
+  {
+    label: "giraffe",
+    type: "Animals",
+    emoji: "🦒",
+    keywords: ["giraffe", "long_neck", "safari", "africa"],
+  },
+  {
+    label: "lion",
+    type: "Animals",
+    emoji: "🦁",
+    keywords: ["lion", "king", "mane", "safari"],
+  },
+  {
+    label: "tiger",
+    type: "Animals",
+    emoji: "🐯",
+    keywords: ["tiger", "stripes", "wild", "big_cat"],
+  },
+  {
+    label: "leopard",
+    type: "Animals",
+    emoji: "🐆",
+    keywords: ["leopard", "cheetah", "spots", "big_cat"],
+  },
+  {
+    label: "rhino",
+    type: "Animals",
+    emoji: "🦏",
+    keywords: ["rhino", "rhinoceros", "horn", "safari"],
+  },
+  {
+    label: "monkey",
+    type: "Animals",
+    emoji: "🐒",
+    keywords: ["monkey", "ape", "chimp", "jungle"],
+  },
+  //   flags
+  {
+    label: "CN",
+    type: "Flags",
+    emoji: "🇨🇳",
+    keywords: ["China", "flag", "country"],
+  },
+  {
+    label: "IN",
+    type: "Flags",
+    emoji: "🇮🇳",
+    keywords: ["India", "flag", "country"],
+  },
+  {
+    label: "JP",
+    type: "Flags",
+    emoji: "🇯🇵",
+    keywords: ["Japan", "flag", "country"],
+  },
+  {
+    label: "KR",
+    type: "Flags",
+    emoji: "🇰🇷",
+    keywords: ["South Korea", "flag", "country", "ROK"],
+  },
+  {
+    label: "GB",
+    type: "Flags",
+    emoji: "🇬🇧",
+    keywords: ["United Kingdom", "flag", "country", "UK", "Britain"],
+  },
+  {
+    label: "US",
+    type: "Flags",
+    emoji: "🇺🇸",
+    keywords: ["United States", "flag", "country", "USA"],
+  },
+  {
+    label: "AF",
+    type: "Flags",
+    emoji: "🇦🇫",
+    keywords: ["Afghanistan", "flag", "country"],
+  },
+  {
+    label: "AL",
+    type: "Flags",
+    emoji: "🇦🇱",
+    keywords: ["Albania", "flag", "country"],
+  },
+  {
+    label: "DZ",
+    type: "Flags",
+    emoji: "🇩🇿",
+    keywords: ["Algeria", "flag", "country"],
+  },
+  {
+    label: "AR",
+    type: "Flags",
+    emoji: "🇦🇷",
+    keywords: ["Argentina", "flag", "country"],
+  },
+  {
+    label: "AU",
+    type: "Flags",
+    emoji: "🇦🇺",
+    keywords: ["Australia", "flag", "country"],
+  },
+  {
+    label: "BR",
+    type: "Flags",
+    emoji: "🇧🇷",
+    keywords: ["Brazil", "flag", "country"],
+  },
+  {
+    label: "CA",
+    type: "Flags",
+    emoji: "🇨🇦",
+    keywords: ["Canada", "flag", "country"],
+  },
+
+  {
+    label: "FR",
+    type: "Flags",
+    emoji: "🇫🇷",
+    keywords: ["France", "flag", "country"],
+  },
+  {
+    label: "DE",
+    type: "Flags",
+    emoji: "🇩🇪",
+    keywords: ["Germany", "flag", "country"],
+  },
+  {
+    label: "IQ",
+    type: "Flags",
+    emoji: "🇮🇶",
+    keywords: ["Iraq", "flag", "country"],
+  },
+  {
+    label: "IR",
+    type: "Flags",
+    emoji: "🇮🇷",
+    keywords: ["Iran", "flag", "country"],
+  },
+  {
+    label: "IT",
+    type: "Flags",
+    emoji: "🇮🇹",
+    keywords: ["Italy", "flag", "country"],
+  },
+  {
+    label: "MX",
+    type: "Flags",
+    emoji: "🇲🇽",
+    keywords: ["Mexico", "flag", "country"],
+  },
+  {
+    label: "NG",
+    type: "Flags",
+    emoji: "🇳🇬",
+    keywords: ["Nigeria", "flag", "country"],
+  },
+  {
+    label: "PK",
+    type: "Flags",
+    emoji: "🇵🇰",
+    keywords: ["Pakistan", "flag", "country"],
+  },
+  {
+    label: "RU",
+    type: "Flags",
+    emoji: "🇷🇺",
+    keywords: ["Russia", "flag", "country"],
+  },
+  {
+    label: "SA",
+    type: "Flags",
+    emoji: "🇸🇦",
+    keywords: ["Saudi Arabia", "flag", "country"],
+  },
+  {
+    label: "ZA",
+    type: "Flags",
+    emoji: "🇿🇦",
+    keywords: ["South Africa", "flag", "country"],
+  },
+  {
+    label: "ES",
+    type: "Flags",
+    emoji: "🇪🇸",
+    keywords: ["Spain", "flag", "country"],
+  },
+  {
+    label: "TR",
+    type: "Flags",
+    emoji: "🇹🇷",
+    keywords: ["Turkey", "flag", "country"],
+  },
+  {
+    label: "BD",
+    type: "Flags",
+    emoji: "🇧🇩",
+    keywords: ["Bangladesh", "flag", "country"],
+  },
+  {
+    label: "BE",
+    type: "Flags",
+    emoji: "🇧🇪",
+    keywords: ["Belgium", "flag", "country"],
+  },
+  {
+    label: "CO",
+    type: "Flags",
+    emoji: "🇨🇴",
+    keywords: ["Colombia", "flag", "country"],
+  },
+  {
+    label: "EG",
+    type: "Flags",
+    emoji: "🇪🇬",
+    keywords: ["Egypt", "flag", "country"],
+  },
+  {
+    label: "ET",
+    type: "Flags",
+    emoji: "🇪🇹",
+    keywords: ["Ethiopia", "flag", "country"],
+  },
+  {
+    label: "GR",
+    type: "Flags",
+    emoji: "🇬🇷",
+    keywords: ["Greece", "flag", "country"],
+  },
+  {
+    label: "ID",
+    type: "Flags",
+    emoji: "🇮🇩",
+    keywords: ["Indonesia", "flag", "country"],
+  },
+  {
+    label: "IE",
+    type: "Flags",
+    emoji: "🇮🇪",
+    keywords: ["Ireland", "flag", "country"],
+  },
+  {
+    label: "IL",
+    type: "Flags",
+    emoji: "🇮🇱",
+    keywords: ["Israel", "flag", "country"],
+  },
+  {
+    label: "KE",
+    type: "Flags",
+    emoji: "🇰🇪",
+    keywords: ["Kenya", "flag", "country"],
+  },
+  {
+    label: "MY",
+    type: "Flags",
+    emoji: "🇲🇾",
+    keywords: ["Malaysia", "flag", "country"],
+  },
+  {
+    label: "NL",
+    type: "Flags",
+    emoji: "🇳🇱",
+    keywords: ["Netherlands", "flag", "country"],
+  },
+  {
+    label: "NZ",
+    type: "Flags",
+    emoji: "🇳🇿",
+    keywords: ["New Zealand", "flag", "country"],
+  },
+  {
+    label: "PE",
+    type: "Flags",
+    emoji: "🇵🇪",
+    keywords: ["Peru", "flag", "country"],
+  },
+  {
+    label: "PH",
+    type: "Flags",
+    emoji: "🇵🇭",
+    keywords: ["Philippines", "flag", "country"],
+  },
+  {
+    label: "PL",
+    type: "Flags",
+    emoji: "🇵🇱",
+    keywords: ["Poland", "flag", "country"],
+  },
+  {
+    label: "PT",
+    type: "Flags",
+    emoji: "🇵🇹",
+    keywords: ["Portugal", "flag", "country"],
+  },
+  {
+    label: "SE",
+    type: "Flags",
+    emoji: "🇸🇪",
+    keywords: ["Sweden", "flag", "country"],
+  },
+  {
+    label: "TH",
+    type: "Flags",
+    emoji: "🇹🇭",
+    keywords: ["Thailand", "flag", "country"],
+  },
+  {
+    label: "UA",
+    type: "Flags",
+    emoji: "🇺🇦",
+    keywords: ["Ukraine", "flag", "country"],
+  },
+  {
+    label: "VN",
+    type: "Flags",
+    emoji: "🇻🇳",
+    keywords: ["Vietnam", "flag", "country"],
+  },
+  {
+    label: "AT",
+    type: "Flags",
+    emoji: "🇦🇹",
+    keywords: ["Austria", "flag", "country"],
+  },
+  {
+    label: "CL",
+    type: "Flags",
+    emoji: "🇨🇱",
+    keywords: ["Chile", "flag", "country"],
+  },
+  {
+    label: "CU",
+    type: "Flags",
+    emoji: "🇨🇺",
+    keywords: ["Cuba", "flag", "country"],
+  },
+  {
+    label: "CZ",
+    type: "Flags",
+    emoji: "🇨🇿",
+    keywords: ["Czechia", "flag", "country", "czech_republic"],
+  },
+  {
+    label: "DK",
+    type: "Flags",
+    emoji: "🇩🇰",
+    keywords: ["Denmark", "flag", "country"],
+  },
+  {
+    label: "FI",
+    type: "Flags",
+    emoji: "🇫🇮",
+    keywords: ["Finland", "flag", "country"],
+  },
+  {
+    label: "HU",
+    type: "Flags",
+    emoji: "🇭🇺",
+    keywords: ["Hungary", "flag", "country"],
+  },
+  {
+    label: "NO",
+    type: "Flags",
+    emoji: "🇳🇴",
+    keywords: ["Norway", "flag", "country"],
+  },
+  {
+    label: "RO",
+    type: "Flags",
+    emoji: "🇷🇴",
+    keywords: ["Romania", "flag", "country"],
+  },
+  {
+    label: "SG",
+    type: "Flags",
+    emoji: "🇸🇬",
+    keywords: ["Singapore", "flag", "country"],
+  },
+  {
+    label: "SK",
+    type: "Flags",
+    emoji: "🇸🇰",
+    keywords: ["Slovakia", "flag", "country"],
+  },
+  {
+    label: "CH",
+    type: "Flags",
+    emoji: "🇨🇭",
+    keywords: ["Switzerland", "flag", "country"],
+  },
+  {
+    label: "UY",
+    type: "Flags",
+    emoji: "🇺🇾",
+    keywords: ["Uruguay", "flag", "country"],
+  },
+  {
+    label: "VE",
+    type: "Flags",
+    emoji: "🇻🇪",
+    keywords: ["Venezuela", "flag", "country"],
+  },
+  //  food
+  {
+    label: "burger",
+    type: "Food",
+    emoji: "🍔",
+    keywords: ["burger", "sandwich", "meat", "fast food", "lunch"],
+  },
+  {
+    label: "fries",
+    type: "Food",
+    emoji: "🍟",
+    keywords: ["fries", "chips", "fast food", "snack", "potato"],
+  },
+  {
+    label: "ice cream",
+    type: "Food",
+    emoji: "🍦",
+    keywords: ["icecream", "dessert", "sweet", "cold", "cone"],
+  },
+  {
+    label: "cake",
+    type: "Food",
+    emoji: "🎂",
+    keywords: ["cake", "birthday", "dessert", "sweet", "celebration"],
+  },
+  {
+    label: "drink",
+    type: "Food",
+    emoji: "🍾",
+    keywords: ["champagne", "bottle", "celebration", "drink", "toast"],
+  },
+  {
+    label: "beer",
+    type: "Food",
+    emoji: "🍺",
+    keywords: ["beer", "mug", "drink", "alcohol", "cheers"],
+  },
+  {
+    label: "grapes",
+    type: "Food",
+    emoji: "🍇",
+    keywords: ["grapes", "fruit", "wine", "vine", "snack"],
+  },
+  {
+    label: "water melon",
+    type: "Food",
+    emoji: "🍉",
+    keywords: ["watermelon", "fruit", "summer", "fresh", "slice"],
+  },
+  {
+    label: "pizza",
+    type: "Food",
+    emoji: "🍕",
+    keywords: ["pizza", "italian", "slice", "takeout", "food"],
+  },
+  {
+    label: "donut",
+    type: "Food",
+    emoji: "🍩",
+    keywords: ["donut", "doughnut", "sweet", "dessert", "snack"],
+  },
+  {
+    label: "cookie",
+    type: "Food",
+    emoji: "🍪",
+    keywords: ["cookie", "biscuit", "chocolate", "sweet", "snack"],
+  },
+  {
+    label: "sushi",
+    type: "Food",
+    emoji: "🍣",
+    keywords: ["sushi", "japanese", "fish", "rice", "food"],
+  },
+  {
+    label: "ramen",
+    type: "Food",
+    emoji: "🍜",
+    keywords: ["ramen", "noodle", "soup", "japanese", "hot"],
+  },
+  {
+    label: "chili",
+    type: "Food",
+    emoji: "🌶️",
+    keywords: ["chili", "pepper", "spicy", "hot", "vegetable"],
+  },
+  {
+    label: "strawberry",
+    type: "Food",
+    emoji: "🍓",
+    keywords: ["strawberry", "fruit", "red", "sweet"],
+  },
+  {
+    label: "milk",
+    type: "Food",
+    emoji: "🥛",
+    keywords: ["milk", "dairy", "drink", "glass", "white"],
+  },
+  {
+    label: "chicken",
+    type: "Food",
+    emoji: "🍗",
+    keywords: ["chicken", "meat", "leg", "drumstick", "dinner"],
+  },
+  {
+    label: "taco",
+    type: "Food",
+    emoji: "🌮",
+    keywords: ["taco", "mexican", "food", "shell", "meat"],
+  },
+  {
+    label: "cinema",
+    type: "Food",
+    emoji: "🍿",
+    keywords: ["popcorn", "movie", "snack", "butter", "cinema"],
+  },
+  {
+    label: "quaso",
+    type: "Food",
+    emoji: "🥐",
+    keywords: ["croissant", "bread", "pastry", "french", "breakfast"],
+  },
+  {
+    label: "greens",
+    type: "Food",
+    emoji: "🥬",
+    keywords: ["greens", "leaf", "lettuce", "healthy", "salad"],
+  },
+  {
+    label: "french",
+    type: "Food",
+    emoji: "🥖",
+    keywords: ["baguette", "bread", "french", "loaf", "bakery"],
+  },
+  {
+    label: "cocktail",
+    type: "Food",
+    emoji: "🍹",
+    keywords: ["cocktail", "tropical", "drink", "mixed", "vacation"],
+  },
+  {
+    label: "wine",
+    type: "Food",
+    emoji: "🍷",
+    keywords: ["wine", "glass", "alcohol", "red", "drink"],
+  },
+  //   travel
+  {
+    label: "train",
+    type: "Travel",
+    emoji: "🚆",
+    keywords: ["train", "rail", "travel", "locomotive", "station"],
+  },
+  {
+    label: "bus",
+    type: "Travel",
+    emoji: "🚌",
+    keywords: ["bus", "coach", "public", "transport", "ride"],
+  },
+  {
+    label: "ship",
+    type: "Travel",
+    emoji: "🚢",
+    keywords: ["ship", "boat", "sea", "ocean", "travel", "voyage"],
+  },
+  {
+    label: "bike",
+    type: "Travel",
+    emoji: "🚲",
+    keywords: ["bike", "bicycle", "cycle", "sport", "ride"],
+  },
+  {
+    label: "map",
+    type: "Travel",
+    emoji: "🗺️",
+    keywords: ["map", "location", "world", "directions", "guide"],
+  },
+  {
+    label: "fuel",
+    type: "Travel",
+    emoji: "⛽",
+    keywords: ["fuel", "gas", "petrol", "pump", "station", "car"],
+  },
+  {
+    label: "moai",
+    type: "Travel",
+    emoji: "🗿",
+    keywords: ["moai", "statue", "easter island", "landmark", "stone"],
+  },
+  {
+    label: "tower",
+    type: "Travel",
+    emoji: "🗼",
+    keywords: ["tower", "eiffel", "paris", "landmark", "france"],
+  },
+  {
+    label: "statue",
+    type: "Travel",
+    emoji: "🗽",
+    keywords: ["statue", "liberty", "nyc", "landmark", "america"],
+  },
+  {
+    label: "house",
+    type: "Travel",
+    emoji: "🏠",
+    keywords: ["house", "home", "building", "residence", "place"],
+  },
+  {
+    label: "castle",
+    type: "Travel",
+    emoji: "🏰",
+    keywords: ["castle", "disney", "palace", "royalty", "landmark"],
+  },
+  {
+    label: "temple",
+    type: "Travel",
+    emoji: "🏯",
+    keywords: ["temple", "japan", "asian", "landmark", "historic"],
+  },
+  {
+    label: "car",
+    type: "Travel",
+    emoji: "🚗",
+    keywords: ["car", "automobile", "vehicle", "drive", "travel"],
+  },
+  {
+    label: "plane",
+    type: "Travel",
+    emoji: "✈️",
+    keywords: ["plane", "airplane", "travel", "flight", "depart"],
+  },
+  //   objects
+  {
+    label: "bulb",
+    type: "Objects",
+    emoji: "💡",
+    keywords: ["idea", "light", "bulb", "bright", "invention"],
+  },
+  {
+    label: "book",
+    type: "Objects",
+    emoji: "📚",
+    keywords: ["book", "read", "library", "school", "education"],
+  },
+  {
+    label: "camera",
+    type: "Objects",
+    emoji: "📷",
+    keywords: ["camera", "photo", "picture", "shoot", "photography"],
+  },
+  {
+    label: "clock",
+    type: "Objects",
+    emoji: "⏰",
+    keywords: ["clock", "alarm", "time", "hour", "wake up"],
+  },
+  {
+    label: "money bag",
+    type: "Objects",
+    emoji: "💸",
+    keywords: ["money", "cash", "flying", "spend", "wealth"],
+  },
+  {
+    label: "sun",
+    type: "Objects",
+    emoji: "☀️",
+    keywords: ["sun", "shine", "weather", "summer", "hot"],
+  },
+  {
+    label: "moon",
+    type: "Objects",
+    emoji: "🌙",
+    keywords: ["moon", "night", "sleep", "dark", "crescent"],
+  },
+  {
+    label: "cloud",
+    type: "Objects",
+    emoji: "☁️",
+    keywords: ["cloud", "weather", "sky", "rain", "overcast"],
+  },
 ];
