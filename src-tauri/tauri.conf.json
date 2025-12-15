@@ -1,8 +1,8 @@
 {
-  "$schema": "https://schema.tauri.app/config/2.9",
+  "$schema": "https://schema.tauri.app/config/2.9.5",
   "productName": "copyhistory",
   "version": "0.1.0",
-  "identifier": "com.adi.copyhistory",
+  "identifier": "con.copyhistory",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -36,7 +36,7 @@
     "targets": "all",
     "icon": [
       "icons/tray.png",
-      "icons/tray.png",
+      "icons/128x128.png",
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"

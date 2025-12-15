@@ -1,7 +1,12 @@
 use serde::{Deserialize, Serialize};
+// use tauri::{AppHandle, Manager};
 use std::fs::{self, File};
 use std::io::{Read, Write};
+use std::path::PathBuf;
+// use std::path::PathBuf;
 use uuid::Uuid;
+
+use crate::COPY_PATH;
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct CopyBord {
@@ -9,9 +14,11 @@ pub struct CopyBord {
     item: String,
 }
 
-//update it it should return a valid user config path
-const FILE_PATH: &str = "/home/adi/.config/copyhistory/data/copy_data.json";
 const MAX_ENTRIES: usize = 10;
+
+fn file_data_path() -> &'static PathBuf {
+    COPY_PATH.get().expect("COPY_PATH not initialized")
+}
 
 #[tauri::command]
 pub fn copy_history_add(content: String) -> Result<(), String> {
@@ -21,12 +28,11 @@ pub fn copy_history_add(content: String) -> Result<(), String> {
         item: content.clone(),
     };
     // adds the directory if it's missing on the project root
-    if let Some(parent) = std::path::Path::new(FILE_PATH).parent() {
+    if let Some(parent) = std::path::Path::new(file_data_path()).parent() {
         fs::create_dir_all(parent).map_err(|e| format!("Failed to create directory: {}", e))?;
     }
-
     //check and decirialize the existing json
-    let mut history: Vec<CopyBord> = match File::open(FILE_PATH) {
+    let mut history: Vec<CopyBord> = match File::open(file_data_path()) {
         Ok(mut file) => {
             let mut json_str = String::new();
             if file.read_to_string(&mut json_str).is_ok() && !json_str.is_empty() {
@@ -39,7 +45,7 @@ pub fn copy_history_add(content: String) -> Result<(), String> {
             }
         }
         Err(_) => {
-            // File does not exist, start with an empty history
+            //start with an empty history
             Vec::new()
         }
     };
@@ -52,20 +58,21 @@ pub fn copy_history_add(content: String) -> Result<(), String> {
     }
 
     let json_string = serde_json::to_string_pretty(&history).expect("Failed to serialize to JSON");
-    let mut file = File::create(FILE_PATH).expect("Failed to create file");
+    let mut file = File::create(file_data_path()).expect("Failed to create file");
     file.write_all(json_string.as_bytes())
         .expect("Failed to write to file");
     Ok(())
 }
 
-//getting the enties
+//getting records
 #[tauri::command]
 pub fn get_history() -> Result<Vec<CopyBord>, String> {
-    let json_data = match fs::read_to_string(FILE_PATH) {
+    println!("{}", file_data_path().display());
+    let json_data = match fs::read_to_string(file_data_path()) {
         Ok(data) => data,
-        Err(_) => return Ok(vec![]), // no file -> return empty
+        Err(_) => return Ok(vec![]),
     };
-    // Parse JSON safely
+    // Parse JSON
     let history: Vec<CopyBord> =
         serde_json::from_str(&json_data).map_err(|e| format!("JSON read failed: {}", e))?;
 
@@ -81,7 +88,7 @@ pub fn del_entry(id: String) -> Result<(), std::string::String> {
     };
 
     //read file
-    let json_file = match fs::read_to_string(FILE_PATH) {
+    let json_file = match fs::read_to_string(file_data_path()) {
         Ok(data) => data,
         Err(e) => {
             if e.kind() == std::io::ErrorKind::NotFound {
@@ -111,7 +118,7 @@ pub fn del_entry(id: String) -> Result<(), std::string::String> {
         Err(e) => return Err(format!("Failed to serialize history: {}", e)),
     };
 
-    match File::create(FILE_PATH).and_then(|mut file| file.write_all(json_string.as_bytes())) {
+    match File::create(file_data_path()).and_then(|mut file| file.write_all(json_string.as_bytes())) {
         Ok(_) => Ok(()),
         Err(e) => Err(format!("Failed to write updated history to file: {}", e)),
     }

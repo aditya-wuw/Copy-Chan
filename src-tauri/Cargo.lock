@@ -595,6 +595,7 @@ dependencies = [
  "chrono",
  "clipboard_listener",
  "mouse_position",
+ "once_cell",
  "serde",
  "serde_json",
  "tauri",

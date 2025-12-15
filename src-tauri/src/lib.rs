@@ -1,13 +1,24 @@
-use mouse_position::mouse_position::Mouse;
-use tauri::{AppHandle, Manager};
-use tauri_plugin_autostart::ManagerExt;
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+pub mod copy_logic;
 use crate::copy_logic::{
     cblisten::cblisten, copy::copy_history_add, copy::del_entry, copy::get_history,
 };
-use std::thread;
+use mouse_position::mouse_position::Mouse;
+use once_cell::sync::OnceCell;
+use std::{path::PathBuf, thread};
+use tauri::{AppHandle, Manager};
+use tauri_plugin_autostart::ManagerExt;
 
-pub mod copy_logic;
+//global filepath store
+static COPY_PATH: OnceCell<PathBuf> = OnceCell::new();
+
+fn set_global_data_path(app: &mut tauri::App) -> Result<(), Box<dyn std::error::Error>> {
+    let mut path = app.path().app_config_dir()?;
+    path.push("copyhistory");
+    std::fs::create_dir_all(&path)?;
+    path.push("copy_data.json");
+    COPY_PATH.set(path).expect("Path already set");
+    Ok(())
+}
 
 //listens to the clipbord
 fn listen_to_clipbord(app: &mut tauri::App) {
@@ -94,6 +105,12 @@ pub fn run() {
         .plugin(tauri_plugin_clipboard_manager::init())
         .plugin(tauri_plugin_global_shortcut::Builder::default().build())
         .setup(|app| {
+            match set_global_data_path(app) {
+                Ok(()) => {}
+                Err(e) => {
+                    eprintln!("error setting up global path : {}", e)
+                }
+            };
             listen_to_clipbord(app);
             autostart(app);
             Ok(())

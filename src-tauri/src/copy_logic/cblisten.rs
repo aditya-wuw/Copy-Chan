@@ -27,3 +27,7 @@ pub fn cblisten(app_handle: tauri::AppHandle) {
         eprintln!("Clipboard listener error: {:?}", e);
     }
 }
+
+
+
+
