@@ -9,11 +9,6 @@ export interface history {
     "item":string
 }
 
-// export interface shortcuts { 
-//     shortcut : string,
-//     action : () => void | Promise<void>;
-// }
-
 export interface Emojies{
     label : string,
     type: string

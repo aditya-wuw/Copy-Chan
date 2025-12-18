@@ -609,31 +609,31 @@ export const graphicEmojiArray: Emojies[] = [
     keywords: ["cat", "love", "heart", "adoration", "crush"],
   },
   {
-    label: "cat_wry",
+    label: "cat wry",
     type: "Faces",
     emoji: "😼",
     keywords: ["cat", "smirk", "wry", "cynical", "sarcasm"],
   },
   {
-    label: "kissing_cat",
+    label: "kissing cat",
     type: "Faces",
     emoji: "😽",
     keywords: ["cat", "kiss", "muah", "affection", "smooch"],
   },
   {
-    label: "pouting_cat",
+    label: "pouting cat",
     type: "Faces",
     emoji: "😾",
     keywords: ["cat", "pout", "angry", "grumpy", "mad"],
   },
   {
-    label: "crying_cat",
+    label: "crying cat",
     type: "Faces",
     emoji: "😿",
     keywords: ["cat", "sad", "cry", "tear", "unhappy"],
   },
   {
-    label: "weary_cat",
+    label: "weary cat",
     type: "Faces",
     emoji: "🙀",
     keywords: ["cat", "tired", "scared", "shocked", "yawning"],
@@ -886,6 +886,7 @@ export const graphicEmojiArray: Emojies[] = [
     emoji: "🤍",
     keywords: ["love", "white", "purity", "peace", "heart"],
   },
+
   //   negative
   {
     label: "cross",
@@ -937,7 +938,6 @@ export const graphicEmojiArray: Emojies[] = [
   },
 
   //   animals
-
   {
     label: "cat smile",
     type: "Faces",

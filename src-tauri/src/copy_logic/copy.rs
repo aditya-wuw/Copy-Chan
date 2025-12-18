@@ -1,9 +1,7 @@
 use serde::{Deserialize, Serialize};
-// use tauri::{AppHandle, Manager};
 use std::fs::{self, File};
 use std::io::{Read, Write};
 use std::path::PathBuf;
-// use std::path::PathBuf;
 use uuid::Uuid;
 
 use crate::COPY_PATH;

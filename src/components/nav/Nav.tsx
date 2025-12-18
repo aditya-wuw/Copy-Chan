@@ -4,6 +4,7 @@ import { CgClose } from "react-icons/cg";
 import { BiClipboard } from "react-icons/bi";
 import { BsEmojiSmile } from "react-icons/bs";
 import { SiSymbolab } from "react-icons/si";
+import { FaGear } from "react-icons/fa6";
 type NavProps = {
   ActiveTab: TabItem;
   SetActiveTab: React.Dispatch<React.SetStateAction<TabItem>>;
@@ -14,11 +15,12 @@ const Nav = ({ ActiveTab, SetActiveTab }: NavProps) => {
     { label: "copy", icon: <BiClipboard /> },
     { label: "emoji", icon: <BsEmojiSmile /> },
     { label: "symbols", icon: <SiSymbolab /> },
+    { label: "Settings", icon: <FaGear /> }
   ];
     
   return (
     <nav data-tauri-drag-region className="sticky z-10 flex justify-between items-center w-full pt-2">
-      <div className="grid grid-cols-3 gap-4 place-items-center group ml-3">
+      <div className="grid grid-cols-4 gap-4 place-items-center group ml-3">
         {items.map((i, index) => (
           <button
             key={index}
