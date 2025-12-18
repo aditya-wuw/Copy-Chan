@@ -10,11 +10,6 @@
     "frontendDist": "../dist"
   },
   "app": {
-    "trayIcon":{
-      "iconPath": "icons/CopychanSmol.png",
-      "title": "Copytrayapp",
-      "tooltip": "show items"
-    },
     "windows": [
       {
         "title": "copyhistory",
