@@ -1,11 +1,13 @@
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { Emojies, GroupedEmojies } from "../types/app.types";
 import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
+import { invoke } from "@tauri-apps/api/core";
 export const appWindow = getCurrentWindow();
 export const currentWindow = WebviewWindow.getCurrent();
+
 export async function HandleCopy(item: string) {
   if (!item) return;
-  await navigator.clipboard.writeText(item);
+  await invoke("copy_and_ignore",{item});
   await appWindow.hide();
 }
 
@@ -19,4 +21,3 @@ export function ParseAndGroupEmoji(item: Emojies[]) {
     return acc;
   }, {} as GroupedEmojies);
 }
-

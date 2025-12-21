@@ -1,13 +1,17 @@
 pub mod copy_logic;
+
 use crate::copy_logic::{
-    cblisten::cblisten,
+    cblisten::{cblisten, copy_and_ignore},
     copy::{copy_history_add, del_entry, get_enties_limit_by_user, get_history, pin_history},
 };
 use mouse_position::mouse_position::Mouse;
 use once_cell::sync::OnceCell;
-use std::{path::PathBuf, thread};
+use std::{path::PathBuf, sync::atomic::AtomicBool, thread};
 use tauri::{AppHandle, Manager};
 
+pub struct ClipboardState {
+    pub ignore_next: AtomicBool,
+}
 //global filepath store
 static COPY_PATH: OnceCell<PathBuf> = OnceCell::new();
 
@@ -94,6 +98,9 @@ fn window_pos(app: tauri::AppHandle, is_shortcut: bool) {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        .manage(ClipboardState {
+            ignore_next: AtomicBool::new(false),
+        })
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| {
             let _ = app
                 .get_webview_window("main")
@@ -124,7 +131,8 @@ pub fn run() {
             close_programe,
             show_window,
             show_window_using_shortcut,
-            hide_window
+            hide_window,
+            copy_and_ignore
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
