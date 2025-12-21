@@ -32,7 +32,7 @@ pub fn get_enties_limit_by_user(limit: Number) {
 
 #[tauri::command]
 pub fn copy_history_add(content: String) -> Result<(), String> {
-    // generate structure
+    // structure
     let new_item = CopyBord {
         id: Uuid::new_v4(),
         item: content.clone(),
@@ -104,6 +104,7 @@ pub fn del_entry(id: String) -> Result<(), std::string::String> {
             return Err(format!("Failed to read history file: {}", e));
         }
     };
+
     //deserialize
     let mut history: Vec<CopyBord> = match serde_json::from_str(&json_file) {
         Ok(h) => h,
@@ -138,11 +139,14 @@ pub fn pin_history(id: Uuid) -> Result<(), String> {
     let mut history = get_history()?;
     for rec in history.iter_mut() {
         if rec.id == id {
-            rec.pinned = true;
+            if rec.pinned == true {
+                rec.pinned = false;
+            } else {
+                rec.pinned = true;
+            };
         }
     }
     let json_file = serde_json::to_string_pretty(&history).map_err(|e| e.to_string())?;
     write_file(json_file);
-    println!("pinned id: {}", id);
     Ok(())
 }
