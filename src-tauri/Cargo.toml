@@ -40,7 +40,7 @@ codegen-units = 1 # Allows LLVM to perform better optimization.
 lto = true        # Enables link-time-optimizations.
 opt-level = "z"
 panic = "abort"   # Higher performance by disabling panic handlers.
-strip = false
+strip = true
 
 [target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
 tauri-plugin-autostart = "2"
