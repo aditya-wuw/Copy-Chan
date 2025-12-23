@@ -101,7 +101,7 @@ const Settings = () => {
         <section className="select-none flex gap-2 items-end">
           <img src={"/Copychan.png"} alt="copychan" draggable="false" />
           <div className="pb-6">
-            <h1 className="text-[13px] dark:text-gray-300 text-gray-700">test build {AppVersion}</h1>
+            <h1 className="text-[13px] dark:text-gray-300 text-gray-700">build {AppVersion}</h1>
             <h1>Support me</h1>
             <span className="flex gap-2">
               <a href="https://github.com/aditya-wuw/Copy-Chan" target="_blank">
