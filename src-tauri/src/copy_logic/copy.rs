@@ -64,8 +64,7 @@ pub fn copy_history_add(content: String) -> Result<(), String> {
     history.insert(0, new_item);
 
     if history.len() > MAX_ENTRIES {
-        let remove_count = history.len() - MAX_ENTRIES;
-        history.drain(0..remove_count); // removes oldest records
+        history.truncate(MAX_ENTRIES); // removes oldest records
     }
 
     let json_string = serde_json::to_string_pretty(&history).expect("Failed to serialize to JSON");
