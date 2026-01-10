@@ -26,7 +26,6 @@ export async function setupTray() {
   const tray = await TrayIcon.new({
     icon: resourcePath,
     id: "tray_app",
-    title: "Copytrayapp",
     tooltip: "show items",
     menu,
     menuOnLeftClick: true,

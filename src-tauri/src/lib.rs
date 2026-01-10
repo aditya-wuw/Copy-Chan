@@ -7,7 +7,7 @@ use crate::copy_logic::{
 use mouse_position::mouse_position::Mouse;
 use once_cell::sync::OnceCell;
 use std::{path::PathBuf, sync::atomic::AtomicBool, thread};
-use tauri::{AppHandle, Manager};
+use tauri::{AppHandle, Manager, PhysicalPosition};
 
 pub struct ClipboardState {
     pub ignore_next: AtomicBool,
@@ -61,39 +61,41 @@ fn show_window_using_shortcut(app: tauri::AppHandle) {
 }
 
 // utils
-fn window_pos(app: tauri::AppHandle, is_shortcut: bool) {
+fn window_pos(app: AppHandle, is_shortcut: bool) {
     if let Some(main_window) = app.get_webview_window("main") {
-        if is_shortcut {
-            let pos = Mouse::get_mouse_position();
-            let offset = 15;
-            match pos {
-                Mouse::Position { x, y } => main_window
-                    .set_position(tauri::PhysicalPosition::new(x + offset, y + offset))
-                    .expect("Failed to set window position"),
-                _ => println!("Mouse returned something else"),
+        let pos = Mouse::get_mouse_position();
+
+        match pos {
+            Mouse::Position { x, y } => {
+                if is_shortcut {
+                    let _ = main_window.set_position(PhysicalPosition::new(x, y));
+                } else {
+                    let monitors = main_window.available_monitors().unwrap_or_default();
+                    let target_monitor = monitors.into_iter().find(|m| {
+                        let m_pos = m.position();
+                        let m_size = m.size();
+                        x >= m_pos.x
+                            && x <= (m_pos.x + m_size.width as i32)
+                            && y >= m_pos.y
+                            && y <= (m_pos.y + m_size.height as i32)
+                    });
+
+                    if let Some(monitor) = target_monitor {
+                        let m_pos = monitor.position();
+                        let m_size = monitor.size();
+                        let new_x = m_pos.x + (m_size.width as f64 * 0.72) as i32;
+                        let _ =
+                            main_window.set_position(PhysicalPosition::new(new_x, m_pos.y + 10));
+                    }
+                }
             }
-        } else if let Ok(Some(monitor)) = main_window.current_monitor() {
-            let size = monitor.size();
-            let screen_width = size.width;
-            main_window
-                .set_position(tauri::PhysicalPosition::new(
-                    screen_width as f64 * 0.72,
-                    10.0,
-                ))
-                .expect("Failed to set window position");
+            _ => eprintln!("Could not get mouse position"),
         }
 
-        main_window.show().unwrap();
-        main_window.set_focus().unwrap();
-    } else {
-        println!("No window labeled 'main' found");
+        let _ = main_window.show();
+        let _ = main_window.set_focus();
     }
 }
-
-// fn autostart(app: &mut tauri::App) {
-//     let startup_manager = app.autolaunch();
-//     let _ = startup_manager.enable();
-// }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -119,7 +121,6 @@ pub fn run() {
                 }
             };
             listen_to_clipbord(app);
-            // autostart(app);
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
