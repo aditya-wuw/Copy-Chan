@@ -55,7 +55,7 @@ const Copy = () => {
               removeHistory={removeHistory}
             />
           ))}
-          <h1 className="flex justify-center border-b mx-2 pb-4" />
+          <h1 className="flex justify-center border-b border-blue-300 mx-2 pb-4" />
         </div>
       )}
       <div className="mt-5">
